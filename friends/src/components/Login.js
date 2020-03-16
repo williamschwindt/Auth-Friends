@@ -20,7 +20,7 @@ export const Login = (props) => {
         axios.post("http://localhost:5000/api/login", user)
         .then(res => {
             console.log(res);
-            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('token', res.data.payload);
             props.history.push('/friendslist');
         })
     };
