@@ -3,9 +3,10 @@ import axios from "axios";
 
 export const Login = (props) => {
     const[ user, setUser ] = useState({
-        username: "",
-        password: ""
+        username: '',
+        password: ''
     })
+    console.log(user);
 
     const changeHandler = (e) => {
         setUser({
@@ -16,9 +17,9 @@ export const Login = (props) => {
 
     const login = (e) => {
         e.preventDefault();
-        axios
-        .post("http://localhost:5000/api/login", user)
+        axios.post("http://localhost:5000/api/login", user)
         .then(res => {
+            console.log(res);
             localStorage.setItem('token', res.data.token);
             props.history.push('/friendslist');
         })
